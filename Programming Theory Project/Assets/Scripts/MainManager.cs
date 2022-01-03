@@ -20,12 +20,18 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    void Start()
+    {
+        SwitchVehicle(0);
+    }
+
     public void SwitchVehicle(int chosenOption)
     {
         if (vehicleOptions[chosenOption] != currentVehicle)
         {
             vehicleOptions[chosenOption].gameObject.GetComponent<Vehicle>().EnterVehicle();
-
+            currentVehicle = vehicleOptions[chosenOption];
+            FollowPlayer.Instance.SetFocusObject(currentVehicle.transform);
         }
     }
 

@@ -5,24 +5,24 @@ using UnityEngine;
 public class Vehicle : MonoBehaviour
 {
     [SerializeField]
-    private float speed;
+    protected float speed;
     [SerializeField]
-    private float rotationSpeed;
+    protected float rotationSpeed;
     [SerializeField]
-    private GameObject centerOfMass;
-    private Rigidbody vehicleRb;
-    private float horizontalInput;
-    public float verticalInput { private set; get; }
-    private float throttleInput;
-    private float actionButton;
-    private bool isPlayerControlling;
+    protected GameObject centerOfMass;
+    protected Rigidbody vehicleRb;
+    protected float horizontalInput;
+    protected float verticalInput;
+    protected float throttleInput;
+    protected float actionButton;
+    protected bool isPlayerControlling;
 
 
     // Start is called before the first frame update
     void Start()
     {
         vehicleRb = GetComponent<Rigidbody>();
-        vehicleRb.centerOfMass = centerOfMass.transform.position;
+        //vehicleRb.centerOfMass = centerOfMass.transform.position;
         isPlayerControlling = false;
     }
 
