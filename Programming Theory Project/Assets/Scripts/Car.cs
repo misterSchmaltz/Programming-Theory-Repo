@@ -15,6 +15,8 @@ public class Car : Vehicle
     [SerializeField]
     private List<WheelCollider> wheelColliders;
     [SerializeField]
+    private List<Transform> wheelTransforms;
+    [SerializeField]
     private int wheelsOnGround;
     
     void Start()
@@ -28,6 +30,7 @@ public class Car : Vehicle
         {
             
             Move();
+            ActionCommand();
             /*
             if (IsOnGround())
             {
@@ -41,6 +44,7 @@ public class Car : Vehicle
         horizontalInput = Input.GetAxis("Horizontal");
         Accelerate();
         Steer();
+        //UpdateWheelPoses();
         //transform.position(Vector3.forward * speed * Time.deltaTime * verticalInput);
         //vehicleRb.AddRelativeForce(Vector3.forward * horsePower * verticalInput);
         //transform.Rotate(Vector3.up, rotationSpeed * horizontalInput * Time.deltaTime);
@@ -71,7 +75,15 @@ public class Car : Vehicle
 
     public override void ActionCommand()
     {
+        if (Input.GetButtonDown("Action Button"))
+        {
+            vehicleRb.AddRelativeForce(Vector3.forward * 50, ForceMode.Impulse);
+        }
 
+        if (Input.GetButtonDown("Reset Button"))
+        {
+            ResetVehicle();
+        }
     }
 
     public override void EnterVehicle()
@@ -95,5 +107,24 @@ public class Car : Vehicle
     {
         wheelColliders[0].motorTorque = verticalInput * motorForce;
         wheelColliders[1].motorTorque = verticalInput * motorForce;
+    }
+
+    private void UpdateWheelPoses()
+    {
+        UpdateWheelPose(wheelColliders[0], wheelTransforms[0]);
+        UpdateWheelPose(wheelColliders[1], wheelTransforms[1]);
+        UpdateWheelPose(wheelColliders[2], wheelTransforms[2]);
+        UpdateWheelPose(wheelColliders[3], wheelTransforms[3]);
+    }
+
+    private void UpdateWheelPose(WheelCollider _collider, Transform _transform)
+    {
+        Vector3 _pos = _transform.position;
+        Quaternion _quat = _transform.rotation;
+
+        _collider.GetWorldPose(out _pos, out _quat);
+
+        _transform.position = _pos;
+        _transform.rotation = _quat;
     }
 }

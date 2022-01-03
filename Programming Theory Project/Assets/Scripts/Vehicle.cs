@@ -13,9 +13,10 @@ public class Vehicle : MonoBehaviour
     protected Rigidbody vehicleRb;
     protected float horizontalInput;
     protected float verticalInput;
-    protected float throttleInput;
+    public float throttleInput;
     protected float actionButton;
     protected bool isPlayerControlling;
+    protected Vector3 spawnPosition;
 
 
     // Start is called before the first frame update
@@ -24,6 +25,7 @@ public class Vehicle : MonoBehaviour
         vehicleRb = GetComponent<Rigidbody>();
         //vehicleRb.centerOfMass = centerOfMass.transform.position;
         isPlayerControlling = false;
+        spawnPosition = new Vector3(transform.position.x, 5f, transform.position.z);
     }
 
     public virtual void Move()
@@ -45,5 +47,11 @@ public class Vehicle : MonoBehaviour
     public virtual void ExitVehicle()
     {
         isPlayerControlling = false;
+    }
+
+    public void ResetVehicle()
+    {
+        transform.position = spawnPosition;
+        transform.rotation = Quaternion.identity;
     }
 }
