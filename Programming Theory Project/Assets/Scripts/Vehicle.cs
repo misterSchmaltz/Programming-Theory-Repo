@@ -11,7 +11,10 @@ public class Vehicle : MonoBehaviour
     [SerializeField]
     private GameObject centerOfMass;
     private Rigidbody vehicleRb;
-    private float horizontalInput, verticalInput, throttleInput, actionButton;
+    private float horizontalInput;
+    public float verticalInput { private set; get; }
+    private float throttleInput;
+    private float actionButton;
     private bool isPlayerControlling;
 
 
@@ -20,6 +23,7 @@ public class Vehicle : MonoBehaviour
     {
         vehicleRb = GetComponent<Rigidbody>();
         vehicleRb.centerOfMass = centerOfMass.transform.position;
+        isPlayerControlling = false;
     }
 
     public virtual void Move()
