@@ -221,6 +221,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &801472784 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4940206894411900813, guid: cdd140d1f10f5f242891b0c487ad1f55, type: 3}
+  m_PrefabInstance: {fileID: 4940206894720548103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &861610859
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,6 +503,10 @@ PrefabInstance:
       propertyPath: rotationSpeed
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 379198510, guid: cdd140d1f10f5f242891b0c487ad1f55, type: 3}
+      propertyPath: propellerObject
+      value: 
+      objectReference: {fileID: 801472784}
     - target: {fileID: 4940206894411900815, guid: cdd140d1f10f5f242891b0c487ad1f55, type: 3}
       propertyPath: m_Name
       value: Small_Plane02

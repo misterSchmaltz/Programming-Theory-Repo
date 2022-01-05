@@ -6,6 +6,8 @@ public class Plane : Vehicle
 {
     [SerializeField]
     private float pitchPower, rollPower, yawPower, enginePower;
+    [SerializeField]
+    private GameObject propellerObject;
     private float activeRoll, activePitch, activeYaw;
     private float yawInput;
 
@@ -32,8 +34,9 @@ public class Plane : Vehicle
 
         transform.Rotate(activePitch * pitchPower * Time.deltaTime, 
             activeYaw * yawPower * Time.deltaTime,
-            activeRoll * rollPower * Time.deltaTime,
+            -activeRoll * rollPower * Time.deltaTime,
             Space.Self);
+        ThrottlePropeller();
     }
 
     public override void ActionCommand()
@@ -47,10 +50,27 @@ public class Plane : Vehicle
     public override void EnterVehicle()
     {
         base.EnterVehicle();
+        PropellerIdle();
     }
 
     public override void ExitVehicle()
     {
         base.ExitVehicle();
+        TurnOffPropeller();
+    }
+
+    public void ThrottlePropeller()
+    {
+        propellerObject.transform.Rotate(Vector3.forward * (Time.deltaTime * 30 + ( 30 * throttleInput)));
+    }
+
+    public void PropellerIdle()
+    {
+        propellerObject.transform.Rotate(Vector3.forward * (30 * Time.deltaTime));
+    }
+
+    public void TurnOffPropeller()
+    {
+        propellerObject.transform.Rotate(new Vector3(0, 0, 0));
     }
 }
