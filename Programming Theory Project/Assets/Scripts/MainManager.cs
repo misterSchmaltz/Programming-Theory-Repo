@@ -22,7 +22,7 @@ public class MainManager : MonoBehaviour
 
     void Start()
     {
-        SwitchVehicle(1);
+        SwitchVehicle(0);
     }
 
     public void SwitchVehicle(int chosenOption)

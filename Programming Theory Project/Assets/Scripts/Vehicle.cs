@@ -10,6 +10,8 @@ public class Vehicle : MonoBehaviour
     protected float rotationSpeed;
     [SerializeField]
     protected GameObject centerOfMass;
+    [SerializeField]
+    protected Vector3 cameraOffset;
     protected Rigidbody vehicleRb;
     protected float horizontalInput;
     protected float verticalInput;
@@ -35,13 +37,14 @@ public class Vehicle : MonoBehaviour
 
     public virtual void ActionCommand()
     {
-
+        
     }
 
     public virtual void EnterVehicle()
     {
         //FollowPlayer.Instance.SetTargetObject(this.gameObject);
         isPlayerControlling = true;
+        FollowPlayer.Instance.SetCameraOffset(cameraOffset);
     }
 
     public virtual void ExitVehicle()

@@ -15,7 +15,13 @@ public class Plane : Vehicle
     {
         if (isPlayerControlling)
         {
+            if (Input.GetButtonDown("Reset Button"))
+            {
+                ResetVehicle();
+            }
+            
             Move();
+            ActionCommand();
         }
     }
 
@@ -41,10 +47,7 @@ public class Plane : Vehicle
 
     public override void ActionCommand()
     {
-        if (Input.GetButtonDown("Reset Button"))
-        {
-            ResetVehicle();
-        }
+
     }
 
     public override void EnterVehicle()

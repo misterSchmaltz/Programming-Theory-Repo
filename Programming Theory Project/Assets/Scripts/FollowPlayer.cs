@@ -56,4 +56,9 @@ public class FollowPlayer : MonoBehaviour
     {
         objectFocus = newFocus;
     }
+
+    public void SetCameraOffset(Vector3 offsetValues)
+    {
+        offset = offsetValues;
+    }
 }

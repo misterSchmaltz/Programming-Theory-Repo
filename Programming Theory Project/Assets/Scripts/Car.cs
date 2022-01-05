@@ -28,6 +28,10 @@ public class Car : Vehicle
     {
         if (isPlayerControlling)
         {
+            if (Input.GetButtonDown("Reset Button"))
+            {
+                ResetVehicle();
+            }
             
             Move();
             ActionCommand();
@@ -78,11 +82,6 @@ public class Car : Vehicle
         if (Input.GetButtonDown("Action Button"))
         {
             vehicleRb.AddRelativeForce(Vector3.forward * 50, ForceMode.Impulse);
-        }
-
-        if (Input.GetButtonDown("Reset Button"))
-        {
-            ResetVehicle();
         }
     }
 
