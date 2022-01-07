@@ -57,7 +57,7 @@ public class Plane : Vehicle
 
     public void SpawnPayload()
     {
-        Instantiate(payload, new Vector3(transform.position.x, transform.position.y - 2f, transform.position.z), payload.transform.rotation, this.transform);
+        Instantiate(payload, new Vector3(transform.position.x, transform.position.y - 2f, transform.position.z), payload.transform.rotation);
     }
 
     public override void EnterVehicle()

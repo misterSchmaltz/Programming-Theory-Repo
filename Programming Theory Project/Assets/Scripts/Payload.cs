@@ -15,7 +15,18 @@ public class Payload : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        explosionParticle.Play();
-        Destroy(this.gameObject);
+        /*
+        if (!other.gameObject is Plane && !other.gameObject is Payload)
+        {
+            explosionParticle.Play();
+            Destroy(this.gameObject);
+        }*/
+        if (!other.gameObject.GetComponent<Plane>() && !other.gameObject.GetComponent<Payload>())
+        {
+            //Instantiate(explosionParticle, this.transform.position, explosionParticle.transform.rotation);
+            //explosionParticle.Play();
+            //Destroy(explosionParticle, explosionParticle.duration);
+            Destroy(this.gameObject);
+        }
     }
 }
