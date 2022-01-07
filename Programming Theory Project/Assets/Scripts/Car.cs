@@ -10,6 +10,8 @@ public class Car : Vehicle
     private float maxSteerAngle = 30;
     [SerializeField]
     private float motorForce = 50;
+    [SerializeField]
+    private float speedBoost = 800f;
     private float steeringAngle;
 
     [SerializeField]
@@ -81,7 +83,7 @@ public class Car : Vehicle
     {
         if (Input.GetButtonDown("Action Button"))
         {
-            vehicleRb.AddRelativeForce(Vector3.forward * 50, ForceMode.Impulse);
+            vehicleRb.AddRelativeForce(Vector3.forward * speedBoost, ForceMode.Impulse);
         }
     }
 

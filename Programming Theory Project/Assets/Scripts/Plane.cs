@@ -8,6 +8,8 @@ public class Plane : Vehicle
     private float pitchPower, rollPower, yawPower, enginePower;
     [SerializeField]
     private GameObject propellerObject;
+    [SerializeField]
+    private GameObject payload;
     private float activeRoll, activePitch, activeYaw;
     private float yawInput;
 
@@ -47,7 +49,15 @@ public class Plane : Vehicle
 
     public override void ActionCommand()
     {
+        if (Input.GetButtonDown("Action Button"))
+        {
+            SpawnPayload();
+        }
+    }
 
+    public void SpawnPayload()
+    {
+        Instantiate(payload, new Vector3(transform.position.x, transform.position.y - 2f, transform.position.z), payload.transform.rotation, this.transform);
     }
 
     public override void EnterVehicle()
