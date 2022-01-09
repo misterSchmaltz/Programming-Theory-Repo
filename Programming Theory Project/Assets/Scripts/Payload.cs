@@ -23,7 +23,7 @@ public class Payload : MonoBehaviour
         }*/
         if (!other.gameObject.GetComponent<Plane>() && !other.gameObject.GetComponent<Payload>())
         {
-            //Instantiate(explosionParticle, this.transform.position, explosionParticle.transform.rotation);
+            Instantiate(explosionParticle, this.transform.position, explosionParticle.transform.rotation);
             //explosionParticle.Play();
             //Destroy(explosionParticle, explosionParticle.duration);
             Destroy(this.gameObject);
