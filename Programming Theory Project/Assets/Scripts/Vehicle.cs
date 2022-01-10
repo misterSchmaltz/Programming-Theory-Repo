@@ -14,6 +14,8 @@ public class Vehicle : MonoBehaviour
     protected Vector3 cameraOffset;
     [SerializeField]
     protected GameObject vehicleControlsUI;
+    [SerializeField]
+    protected ParticleSystem exhaustParticles;
     protected Rigidbody vehicleRb;
     protected float horizontalInput;
     protected float verticalInput;
@@ -48,12 +50,20 @@ public class Vehicle : MonoBehaviour
         isPlayerControlling = true;
         FollowPlayer.Instance.SetCameraOffset(cameraOffset);
         EnableControlsUI();
+        if (exhaustParticles != null)
+        {
+            exhaustParticles.Play();
+        }
     }
 
     public virtual void ExitVehicle()
     {
         isPlayerControlling = false;
         DisableControlsUI();
+        if (exhaustParticles != null)
+        {
+            exhaustParticles.Stop();
+        }
     }
 
     public void ResetVehicle()

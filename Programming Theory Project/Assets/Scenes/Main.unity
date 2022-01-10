@@ -942,6 +942,7 @@ MonoBehaviour:
   centerOfMass: {fileID: 2054808978}
   cameraOffset: {x: 0, y: 6, z: -12}
   vehicleControlsUI: {fileID: 1414652192}
+  exhaustParticles: {fileID: 0}
   throttleInput: 0
 --- !u!1 &204379666
 GameObject:
@@ -15136,6 +15137,10 @@ PrefabInstance:
       value: -12
       objectReference: {fileID: 0}
     - target: {fileID: 1943392446, guid: 66553ecb38c96134ba92797d7f7dd0f1, type: 3}
+      propertyPath: exhaustParticles
+      value: 
+      objectReference: {fileID: 9051285323087066540}
+    - target: {fileID: 1943392446, guid: 66553ecb38c96134ba92797d7f7dd0f1, type: 3}
       propertyPath: vehicleControlsUI
       value: 
       objectReference: {fileID: 822329633}
@@ -15231,5 +15236,10 @@ Transform:
 --- !u!4 &9051285323087066539 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9051285323115707012, guid: 66553ecb38c96134ba92797d7f7dd0f1, type: 3}
+  m_PrefabInstance: {fileID: 9051285323087066535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &9051285323087066540 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3824059711829898058, guid: 66553ecb38c96134ba92797d7f7dd0f1, type: 3}
   m_PrefabInstance: {fileID: 9051285323087066535}
   m_PrefabAsset: {fileID: 0}
