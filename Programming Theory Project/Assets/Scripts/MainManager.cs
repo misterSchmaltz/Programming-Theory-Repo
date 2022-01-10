@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainManager : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class MainManager : MonoBehaviour
     [SerializeField]
     private List<GameObject> vehicleOptions;
     public GameObject currentVehicle { get; private set; }
+    private UIManager uiManager;
+    bool isGameActive = false;
     void Awake()
     {
         if (Instance != null)
@@ -22,7 +25,7 @@ public class MainManager : MonoBehaviour
 
     void Start()
     {
-        SwitchVehicle(1);
+        SwitchVehicle(0);
     }
 
     public void SwitchVehicle(int chosenOption)
@@ -30,9 +33,12 @@ public class MainManager : MonoBehaviour
         if (vehicleOptions[chosenOption] != currentVehicle)
         {
             vehicleOptions[chosenOption].gameObject.GetComponent<Vehicle>().EnterVehicle();
+            if (currentVehicle != null)
+            {
+                currentVehicle.gameObject.GetComponent<Vehicle>().ExitVehicle();
+            }
             currentVehicle = vehicleOptions[chosenOption];
             FollowPlayer.Instance.SetFocusObject(currentVehicle.transform);
         }
     }
-
 }

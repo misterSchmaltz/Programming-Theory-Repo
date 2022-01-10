@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -941,6 +941,7 @@ MonoBehaviour:
   rotationSpeed: 4
   centerOfMass: {fileID: 2054808978}
   cameraOffset: {x: 0, y: 6, z: -12}
+  vehicleControlsUI: {fileID: 1414652192}
   throttleInput: 0
 --- !u!1 &204379666
 GameObject:
@@ -3211,7 +3212,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh17462
+  m_Name: pb_Mesh19386
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15053,6 +15054,10 @@ PrefabInstance:
       propertyPath: propellerObject
       value: 
       objectReference: {fileID: 801472784}
+    - target: {fileID: 379198510, guid: cdd140d1f10f5f242891b0c487ad1f55, type: 3}
+      propertyPath: vehicleControlsUI
+      value: 
+      objectReference: {fileID: 516085646}
     - target: {fileID: 4940206894411900815, guid: cdd140d1f10f5f242891b0c487ad1f55, type: 3}
       propertyPath: m_Name
       value: Small_Plane02
@@ -15130,6 +15135,10 @@ PrefabInstance:
       propertyPath: cameraOffset.z
       value: -12
       objectReference: {fileID: 0}
+    - target: {fileID: 1943392446, guid: 66553ecb38c96134ba92797d7f7dd0f1, type: 3}
+      propertyPath: vehicleControlsUI
+      value: 
+      objectReference: {fileID: 822329633}
     - target: {fileID: 1943392446, guid: 66553ecb38c96134ba92797d7f7dd0f1, type: 3}
       propertyPath: wheelTransforms.Array.size
       value: 4

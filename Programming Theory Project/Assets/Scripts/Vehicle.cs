@@ -12,6 +12,8 @@ public class Vehicle : MonoBehaviour
     protected GameObject centerOfMass;
     [SerializeField]
     protected Vector3 cameraOffset;
+    [SerializeField]
+    protected GameObject vehicleControlsUI;
     protected Rigidbody vehicleRb;
     protected float horizontalInput;
     protected float verticalInput;
@@ -45,16 +47,28 @@ public class Vehicle : MonoBehaviour
         //FollowPlayer.Instance.SetTargetObject(this.gameObject);
         isPlayerControlling = true;
         FollowPlayer.Instance.SetCameraOffset(cameraOffset);
+        EnableControlsUI();
     }
 
     public virtual void ExitVehicle()
     {
         isPlayerControlling = false;
+        DisableControlsUI();
     }
 
     public void ResetVehicle()
     {
         transform.position = spawnPosition;
         transform.rotation = Quaternion.identity;
+    }
+
+    public void EnableControlsUI()
+    {
+        vehicleControlsUI.SetActive(true);
+    }
+
+    public void DisableControlsUI()
+    {
+        vehicleControlsUI.SetActive(false);
     }
 }

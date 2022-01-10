@@ -4,15 +4,39 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField]
+    private List<GameObject> vehicleControls;
+
+    public void EnableControls(int index)
     {
-        
+        int currentEnabledControl = 0;
+        bool activeControlUI = false;
+        for (int i = 0; i < vehicleControls.Count; i++)
+        {
+            if (vehicleControls[i].active)
+            {
+                activeControlUI = true;
+                currentEnabledControl = i;
+            }
+        }
+
+        if (activeControlUI)
+        {
+            DisableControls(currentEnabledControl);
+        }
+
+        vehicleControls[index].SetActive(true);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void DisableControls(int index)
     {
-        
+        if (vehicleControls[index].active)
+        {
+            return;
+        }
+        else
+        {
+            vehicleControls[index].SetActive(false);
+        }
     }
 }
